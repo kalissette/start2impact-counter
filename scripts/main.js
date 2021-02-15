@@ -1,4 +1,3 @@
-/* Start */
 let counter = 0;
 
 function getIncrement() {
