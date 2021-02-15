@@ -98,6 +98,10 @@ h1 {
     color: white;
 }
 
+.delay {
+    animation-delay: 0.07s
+}
+
 @keyframes bouncy {
     0% {
         top: 0em
