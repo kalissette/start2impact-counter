@@ -12,16 +12,16 @@ function getDecrement() {
 
 function increaseOperation() {
     let currentCounter = document.getElementById('counter');
-    currentCounter.innerHTML = this.getIncrement();
+    currentCounter.innerHTML = getIncrement();
 }
 
 function decreaseOperation() {
     let currentCounter = document.getElementById('counter');
-    currentCounter.innerHTML = this.getDecrement();
+    if(currentCounter) currentCounter.innerHTML = getDecrement();
 }
 
 function reset() {
     let currentCounter = document.getElementById('counter');
     counter = 0;
-    currentCounter.innerHTML = counter;
+    if(currentCounter) currentCounter.innerHTML = counter;
 }
