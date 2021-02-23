@@ -1,8 +1,19 @@
+let sumButton; 
+let differenceButton;
+let resetButton;
+
 function loadElements() {
 
-    let h1 = createTextElement("Counter", "h1");
-    document.body.appendChild(h1);
+    createTitle();
 
+    createDivWrapper();
+
+    sumButton.addEventListener("click", increaseOperation);
+    differenceButton.addEventListener("click", decreaseOperation);
+    resetButton.addEventListener("click", reset);
+}
+
+function createDivWrapper(){
     let divWrapper = createElement("div");
     divWrapper.classList.add("flex-center");
     divWrapper.classList.add("flex-column");
@@ -16,11 +27,11 @@ function loadElements() {
     div2.classList.add("buttons-group");
     div2.setAttribute("id", "buttons");
 
-    let sumButton = creationButton('+');
+    sumButton = createButton('+');
     sumButton.classList.add("btn");
     sumButton.classList.add("bouncy");
     
-    let differenceButton = creationButton('-');
+    differenceButton = createButton('-');
     differenceButton.classList.add("btn");
     differenceButton.classList.add("bouncy");
     differenceButton.classList.add("delay");
@@ -32,7 +43,7 @@ function loadElements() {
     div3.classList.add("buttons-group");
     div3.setAttribute("id", "reset");
 
-    let resetButton = creationButton('Reset Counter');
+    resetButton = createButton('Reset Counter');
     resetButton.classList.add("btn-reset");
 
     div3.appendChild(resetButton);
@@ -43,26 +54,22 @@ function loadElements() {
 
     document.body.appendChild(divWrapper);
 
-    sumButton.addEventListener("click", increaseOperation);
-    differenceButton.addEventListener("click", decreaseOperation);
-    resetButton.addEventListener("click", reset);
 }
 
-function creationButton(value) {
+function createTitle() {
+    var element = document.createElement("h1");
+    var t = document.createTextNode("Counter");
+    element.appendChild(t);
+    document.body.appendChild(element);
+}
+
+function createButton(value) {
     let button = document.createElement("button");
     button.innerHTML = value;
     return button;
 }
 
-function createTextElement(text, tag) {
-    var element = document.createElement(tag);
-    var t = document.createTextNode(text);
-    element.appendChild(t);
-    return element;
-}
-
-function createElement(tag, classList) {
+function createElement(tag) {
     let element = document.createElement(tag);
-    element.classList.add(classList);
     return element;
 }
